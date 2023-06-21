@@ -6,9 +6,8 @@ stages:
   - test
   - deploy
 
-
-  build:
-    stage: build
+build:
+  stage: build
     script: 
       - npm install
       - npm start
