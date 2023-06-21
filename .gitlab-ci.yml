@@ -6,11 +6,12 @@ stages:
   - test
   - deploy
 
-build:
+build: 
   stage: build
-    script: 
-      - npm install
-      - npm start
+  script:
+    - npm install
+    - npm start
+
     
 
 # Define job variables
