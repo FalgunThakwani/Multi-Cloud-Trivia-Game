@@ -1,31 +1,29 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import axios from "axios";
-
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+// import axios from "axios";
+import { FirebaseAppProvider } from "reactfire"; 
 import './App.css';
 
 
 /* Profile Management */
 import Home from "./components/Dashboard/Home"
-import Profile from "./components/UserProfileManagement/Profile";
+// import Profile from "./components/UserProfileManagement/Profile";
+import ProfileWrapper from "./components/UserProfileManagement/Profile";
+import ProfileDetails from "./components/UserProfileManagement/ProfileDetails";
 
 function App() {
-  
-  axios.interceptors.request.use((config) => {
-    config.headers["Origin"] = "http://localhost:3001";
-    return config;
-  });
 
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route exact path="/" element={<Home/>} />
+      <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home/>} />
 
-      {/* Module : User Profile Management start */}
-      <Route path="/Profile" element={<Profile />} />
-
-      {/* User Profile Management end */}
-    </Routes>
-  </BrowserRouter>
+        {/* Module : User Profile Management start */}
+        <Route path="/Profile" element={<ProfileWrapper />} />
+        <Route path="/Profile/ProfileDetails" element={<ProfileDetails />} />
+        {/* User Profile Management end */}
+      </Routes>
+    </BrowserRouter>
+  // </FirebaseAppProvider>
   );
 }
 
